@@ -4,9 +4,10 @@
   "private": true,
   "type": "module",
   "scripts": {
+    "dev": "node scripts/dev.mjs",
     "build": "tailwindcss -i ./src/styles.css -o ./dist/assets/styles.css --minify",
     "watch": "tailwindcss -i ./src/styles.css -o ./dist/assets/styles.css --watch",
-    "check": "node --check dist/assets/app.js && node --check dist/assets/content.js",
+    "check": "node --check dist/assets/app.js && node --check dist/assets/content.js && node --check scripts/dev.mjs && node --check scripts/preview.mjs",
     "preview": "node scripts/preview.mjs"
   },
   "devDependencies": {

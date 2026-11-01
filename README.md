@@ -13,20 +13,33 @@ GitHub風のUIとTailwind CSSで構築した、1ページのポートフォリ�
 
 ## 開発・確認
 
-Node.js 20以上を使用します。
+Node.js 20以上を使用します。この環境ではNode.js 24と依存関係を準備済みです。
+
+ターミナルでプロジェクトに移動して、開発サーバーを起動します。
 
 ```sh
-npm ci
-npm run build
-npm run check
-npm run preview
+cd /Users/kanosasaki/Documents/Codex/Portfolio/portfolio
+npm run dev
 ```
 
-`http://127.0.0.1:4173` を開きます。HTMLやデータの変更中は、別のターミナルで `npm run watch` を実行するとCSSを再生成できます。
+`http://127.0.0.1:4173` を開きます。Tailwind CSSの生成、ファイル変更の監視、ブラウザの自動再読み込みがまとめて動きます。HTML・JavaScript・サムネイル・`src/styles.css` を保存すると画面に反映されます。停止するときは、起動したターミナルで `Ctrl+C` を押してください。ローカルの変更がGitHubや公開サイトへ自動送信されることはありません。
+
+別のPCなど、依存関係がまだ入っていない環境では、最初に `npm ci` を実行してください。
+
+公開用のCSS生成と構文チェックは、次のコマンドです。
+
+```sh
+npm run build
+npm run check
+```
+
+生成したファイルを自動更新なしで確認する場合は `npm run preview` を使えます。`dev` と `preview` は同じポートを使うため、同時には起動しないでください。
 
 ## 自分の情報への差し替え
 
 `dist/assets/content.js` にプロフィール、実績、スキルをまとめています。
+
+`data-profile` 属性が付いたプロフィール本文は、ページ表示時に `content.js` の内容で置き換わります。この本文を変えるときは `index.html` ではなく `content.js` を編集してください。レイアウトは `dist/index.html`、色や追加スタイルは `src/styles.css` で調整します。`dist/assets/styles.css` は自動生成されるため直接編集しません。
 
 - `profile`: 名前、ハンドル、自己紹介、GitHub URLなど。差し替え後に `isSample` を `false` にするとプレビュー表示が消えます。
 - `projects`: タイトル、説明、サムネイル、担当範囲、課題、工夫、学び、公開URLなど。
@@ -47,7 +60,8 @@ dist/                 公開する静的ファイル
     styles.css        Tailwindで生成したCSS
     *.svg             アバター・サムネイル
 src/styles.css        Tailwind設定と追加スタイル
-scripts/preview.mjs   ローカル確認用サーバー
+scripts/dev.mjs       CSS監視とサーバーをまとめて起動
+scripts/preview.mjs   ローカル確認用サーバー・自動再読み込み
 ```
 
 ## 公開
