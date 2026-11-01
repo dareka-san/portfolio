@@ -1,0 +1,16 @@
+{
+  "name": "geek-portfolio",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "tailwindcss -i ./src/styles.css -o ./dist/assets/styles.css --minify",
+    "watch": "tailwindcss -i ./src/styles.css -o ./dist/assets/styles.css --watch",
+    "check": "node --check dist/assets/app.js && node --check dist/assets/content.js",
+    "preview": "node scripts/preview.mjs"
+  },
+  "devDependencies": {
+    "@tailwindcss/cli": "^4.1.0",
+    "tailwindcss": "^4.1.0"
+  }
+}

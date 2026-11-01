@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="ja" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0d1117">
+  <meta name="description" content="コードとデザインで、アイデアをかたちにする。自己紹介・スキル・制作実績をまとめたポートフォリオ。">
+  <title>Kano Sasaki — Developer Portfolio</title>
+  <link rel="icon" href="./assets/avatar.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="./assets/styles.css">
+  <script type="module" src="./assets/app.js"></script>
+</head>
+<body class="bg-page font-sans text-ink antialiased">
+  <a href="#main" class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-50 focus:rounded focus:bg-subtle focus:p-3">本文へスキップ</a>
+  <svg xmlns="http://www.w3.org/2000/svg" class="hidden" aria-hidden="true">
+    <symbol id="i-code" viewBox="0 0 24 24"><path d="m8 7-5 5 5 5m8-10 5 5-5 5m-3-13-2 16"/></symbol>
+    <symbol id="i-book" viewBox="0 0 24 24"><path d="M12 5c-4-3-9-1-9-1v15s5-2 9 1c4-3 9-1 9-1V4s-5-2-9 1Zm0 0v15"/></symbol>
+    <symbol id="i-grid" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></symbol>
+    <symbol id="i-stack" viewBox="0 0 24 24"><path d="m12 3 10 5-10 5L2 8l10-5Zm-9 9 9 5 9-5M3 16l9 5 9-5"/></symbol>
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M6 18 18 6M6 6h12v12"/></symbol>
+    <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M5 5l1.5 1.5m11 11L19 19M5 19l1.5-1.5m11-11L19 5"/></symbol>
+    <symbol id="i-search" viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 5 5"/></symbol>
+    <symbol id="i-copy" viewBox="0 0 24 24"><rect x="8" y="8" width="12" height="13" rx="2"/><path d="M15 8V3H3v12h5"/></symbol>
+    <symbol id="i-pin" viewBox="0 0 24 24"><path d="M19 10c0 5-7 11-7 11S5 15 5 10a7 7 0 1 1 14 0Z"/><circle cx="12" cy="10" r="2.5"/></symbol>
+    <symbol id="i-close" viewBox="0 0 24 24"><path d="m6 6 12 12M18 6 6 18"/></symbol>
+    <symbol id="i-terminal" viewBox="0 0 24 24"><path d="m4 6 6 6-6 6m9 0h7"/></symbol>
+    <symbol id="i-github" viewBox="0 0 24 24"><path d="M9 19c-4 1-4-2-6-2m12 5v-4a3.5 3.5 0 0 0-1-2.7c3.3-.4 6.8-1.6 6.8-7.3A5.7 5.7 0 0 0 19.3 4a5.3 5.3 0 0 0-.1-4S18 0 15 1.5a13.4 13.4 0 0 0-6 0C6 0 4.8 0 4.8 0A5.3 5.3 0 0 0 4.7 4a5.7 5.7 0 0 0-1.5 4c0 5.7 3.5 6.9 6.8 7.3A3.5 3.5 0 0 0 9 18v4" transform="translate(1 1) scale(.9)"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="m5 12 4 4L19 6"/></symbol>
+  </svg>
+
+  <header class="border-b border-line bg-subtle/70">
+    <div class="mx-auto flex h-[76px] max-w-[1380px] items-center justify-between gap-4 px-5 sm:px-9">
+      <a href="#about" aria-label="ポートフォリオの先頭へ" class="flex min-w-0 items-center gap-3 sm:gap-4">
+        <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg border border-accent/30 bg-accent/10 text-accent"><svg class="icon h-5 w-5"><use href="#i-code"/></svg></span>
+        <span class="truncate font-mono text-sm"><span data-profile="handle">dareka-san</span><span class="mx-2 text-muted">/</span><strong class="font-semibold">portfolio</strong></span>
+        <span class="hidden rounded-full border border-line px-2 py-0.5 text-[10px] text-muted sm:inline">Personal</span>
+      </a>
+      <div class="flex items-center gap-2 sm:gap-3">
+        <button id="search-button" type="button" class="quiet-button hidden w-56 justify-start text-muted lg:flex" aria-haspopup="dialog"><svg class="icon h-4 w-4"><use href="#i-search"/></svg><span class="flex-1 text-left text-xs">セクションに移動…</span><kbd class="rounded border border-line px-1.5 text-[11px]">/</kbd></button>
+        <button id="theme-button" class="quiet-button h-9 w-9 p-0" type="button" aria-label="ライトテーマに切り替える"><svg class="icon"><use href="#i-sun"/></svg></button>
+        <img src="./assets/avatar.svg" width="32" height="32" alt="" class="hidden rounded-full border border-line sm:block">
+      </div>
+    </div>
+  </header>
+
+  <nav aria-label="メインナビゲーション" class="sticky top-0 z-20 border-b border-line bg-page/95 backdrop-blur-md">
+    <div class="mx-auto flex max-w-[1316px] items-center justify-between px-3 sm:px-6">
+      <div class="flex overflow-x-auto">
+        <a class="nav-link" href="#about" aria-current="location"><svg class="icon h-4 w-4"><use href="#i-book"/></svg>Overview</a>
+        <a class="nav-link" href="#projects"><svg class="icon h-4 w-4"><use href="#i-grid"/></svg>Projects<span id="project-total" class="rounded-full bg-line/60 px-2 py-0.5 text-[10px]">4</span></a>
+        <a class="nav-link" href="#skills"><svg class="icon h-4 w-4"><use href="#i-stack"/></svg>Skills</a>
+      </div>
+      <span class="hidden items-center gap-2 font-mono text-[11px] text-muted md:flex"><span class="h-1.5 w-1.5 rounded-full bg-accent"></span>always learning, always building</span>
+    </div>
+  </nav>
+
+  <main id="main" class="mx-auto grid max-w-[1316px] gap-9 px-5 pb-16 pt-9 sm:px-9 lg:grid-cols-[248px_minmax(0,1fr)] lg:gap-10 lg:pt-10">
+    <aside aria-label="プロフィール" class="min-w-0">
+      <div class="flex items-center gap-6 lg:block">
+        <div class="relative h-24 w-24 shrink-0 lg:h-[220px] lg:w-[220px]">
+          <img src="./assets/avatar.svg" alt="緑色のピクセルロボットのアバター" width="220" height="220" class="h-full w-full rounded-full border border-line bg-subtle p-2">
+          <span title="Hello, world!" class="absolute bottom-0 right-0 flex h-9 w-9 items-center justify-center rounded-full border border-line bg-page text-lg lg:bottom-3 lg:right-2">👋</span>
+        </div>
+        <div class="lg:mt-5"><h1 data-profile="name" class="text-[26px] font-semibold tracking-tight">Kano Sasaki</h1><p data-profile="handle" class="mt-0.5 font-mono text-lg font-light text-muted">dareka-san</p></div>
+      </div>
+      <p data-profile="role" class="mt-5 text-[15px] leading-7">Frontend Developer<br>&amp; Curious Builder</p>
+      <p data-profile="tagline" class="mt-3 text-sm leading-6 text-muted">コードを書くこと。仕組みを知ること。<br>小さな「おもしろい」を、かたちに。</p>
+      <button id="copy-profile" type="button" class="quiet-button mt-5 w-full"><svg class="icon h-4 w-4"><use href="#i-copy"/></svg>プロフィールをコピー</button>
+      <div class="mt-5 flex items-center gap-2 text-xs text-muted"><svg class="icon h-4 w-4"><use href="#i-pin"/></svg><span data-profile="location">Japan</span></div>
+      <a id="github-link" class="mt-3 hidden items-center gap-2 text-xs text-muted hover:text-link" target="_blank" rel="noopener noreferrer"><svg class="icon h-4 w-4"><use href="#i-github"/></svg><span>GitHub</span><svg class="icon h-3 w-3"><use href="#i-arrow"/></svg></a>
+      <div class="mt-6 border-t border-line pt-5"><p class="mb-3 text-xs font-semibold">A little about me</p><div class="flex flex-wrap gap-2"><span class="rounded-md border border-line bg-subtle px-2 py-1 font-mono text-[10px] text-muted">☕ coffee-driven</span><span class="rounded-md border border-line bg-subtle px-2 py-1 font-mono text-[10px] text-muted">⌨ keyboard person</span><span class="rounded-md border border-line bg-subtle px-2 py-1 font-mono text-[10px] text-muted">✦ side projects</span></div></div>
+      <p id="sample-notice" class="mt-6 rounded-md border border-line px-3 py-2.5 text-[11px] leading-5 text-muted"><span class="font-mono text-accent">Preview mode</span><br>プロフィール・スキル・実績はサンプルです。</p>
+    </aside>
+
+    <div class="min-w-0 space-y-9">
+      <section id="about" aria-labelledby="about-heading" class="overflow-hidden rounded-lg border border-line">
+        <div class="flex items-center justify-between border-b border-line bg-subtle/50 px-5 py-3"><span class="flex items-center gap-2 font-mono text-[11px] text-muted"><svg class="icon h-3.5 w-3.5"><use href="#i-book"/></svg><span data-profile="handle">dareka-san</span> / <span class="text-ink">README.md</span></span><span class="font-mono text-[10px] text-muted">main</span></div>
+        <div class="profile-grid px-6 pb-7 pt-7 sm:px-8 sm:pb-8 sm:pt-8">
+          <p class="mb-5 flex items-center gap-2 font-mono text-xs text-accent"><span class="text-muted">$</span> echo "Hello, world."<span class="inline-block h-3.5 w-1.5 bg-accent" aria-hidden="true"></span></p>
+          <div class="grid gap-7 xl:grid-cols-[1fr_260px] xl:items-center">
+            <div><p class="mb-3 font-mono text-[11px] tracking-wider text-muted">DEVELOPER / DESIGN ENTHUSIAST</p><h2 id="about-heading" class="text-[30px] font-bold leading-[1.55] tracking-tight sm:text-[37px]">つくることを、<br>もっと<span class="text-accent">おもしろく。</span></h2><p data-profile="intro" class="mt-4 max-w-lg text-[13px] leading-7 text-muted">アイデアが動き出す瞬間が好きです。<br>使いやすいUIと、読みやすいコード。<br>その両方を大切に、Webのものづくりを楽しんでいます。</p><a href="#projects" class="mt-6 inline-flex items-center gap-2 rounded-md border border-accent/30 bg-accent/10 px-4 py-2.5 text-xs font-medium text-accent transition-colors hover:bg-accent/20">制作したものを見る<svg class="icon h-3.5 w-3.5"><use href="#i-arrow"/></svg></a></div>
+            <div class="overflow-hidden rounded-lg border border-line bg-page shadow-lg"><div class="flex items-center gap-1.5 border-b border-line bg-subtle px-3 py-2.5"><span class="h-2 w-2 rounded-full bg-[#f78166]"></span><span class="h-2 w-2 rounded-full bg-[#e3b341]"></span><span class="h-2 w-2 rounded-full bg-[#56d084]"></span><span class="ml-3 font-mono text-[10px] text-muted">developer.json</span></div><div class="code-lines py-5 font-mono text-[11px] leading-7"><div>{</div><div> <span class="text-link">"mindset"</span>: <span class="text-accent">"curious"</span>,</div><div> <span class="text-link">"focus"</span>: <span class="text-accent">"web"</span>,</div><div> <span class="text-link">"learning"</span>: <span class="text-[#d2a8ff]">true</span>,</div><div> <span class="text-link">"coffee"</span>: <span class="text-accent">"required"</span></div><div>}</div></div></div>
+          </div>
+          <div class="mt-7 flex flex-wrap gap-x-6 gap-y-3 border-t border-line pt-5 font-mono text-[10px] text-muted"><span class="flex items-center gap-2"><span class="h-1.5 w-1.5 rounded-full bg-accent"></span>thoughtful interfaces</span><span class="flex items-center gap-2"><svg class="icon h-3 w-3"><use href="#i-code"/></svg>clean code</span><span class="flex items-center gap-2"><svg class="icon h-3 w-3"><use href="#i-terminal"/></svg>never stop exploring</span></div>
+        </div>
+      </section>
+
+      <section id="projects" aria-labelledby="projects-heading">
+        <div class="mb-5 flex flex-wrap items-end justify-between gap-4"><div><p class="section-label mb-2">01 / SELECTED WORK</p><h2 id="projects-heading" class="flex items-center gap-2.5 text-lg font-semibold"><svg class="icon text-muted"><use href="#i-grid"/></svg>つくったもの<span class="ml-1 font-mono text-xs font-normal text-muted" id="project-count">4 projects</span></h2></div><div role="group" aria-label="実績のカテゴリー" class="flex gap-1"><button type="button" class="filter-button" data-filter="all" aria-pressed="true">All</button><button type="button" class="filter-button" data-filter="application" aria-pressed="false">Application</button><button type="button" class="filter-button" data-filter="website" aria-pressed="false">Website</button></div></div>
+        <div id="project-grid" class="grid gap-4 sm:grid-cols-2"></div>
+        <p class="mt-4 text-right font-mono text-[10px] text-muted">click a project to explore <span aria-hidden="true">↗</span></p>
+      </section>
+
+      <section id="skills" aria-labelledby="skills-heading">
+        <div class="mb-5"><p class="section-label mb-2">02 / MY TOOLBOX</p><h2 id="skills-heading" class="flex items-center gap-2.5 text-lg font-semibold"><svg class="icon text-muted"><use href="#i-stack"/></svg>できること・学んでいること</h2></div>
+        <div id="skills-grid" class="grid overflow-hidden rounded-lg border border-line md:grid-cols-3"></div>
+        <div class="mt-4 flex items-center gap-2 rounded-md border border-line bg-subtle/40 px-4 py-3"><svg class="icon h-4 w-4 text-accent"><use href="#i-terminal"/></svg><p class="text-xs text-muted"><span class="font-mono text-ink">next up:</span> <span data-profile="learning">アクセシビリティと、心地よいインタラクションを探求中。</span></p></div>
+      </section>
+      <div class="flex items-center justify-between border-t border-line pt-5 font-mono text-[10px] text-muted"><span>const curiosity = Infinity;</span><a href="#about" class="hover:text-accent">Back to top ↑</a></div>
+    </div>
+  </main>
+
+  <footer class="mx-auto flex max-w-[1244px] flex-wrap items-center justify-between gap-3 border-t border-line px-5 py-7 text-[10px] text-muted"><p class="font-mono">© <span id="year">2026</span> <span data-profile="name">Kano Sasaki</span></p><span class="flex items-center gap-2 font-mono"><svg class="icon h-3.5 w-3.5"><use href="#i-code"/></svg>Built with curiosity &amp; Tailwind CSS</span><span class="font-mono">Thanks for stopping by.</span></footer>
+
+  <dialog id="project-dialog" aria-labelledby="dialog-title" class="fixed inset-0 m-auto max-h-[90dvh] w-[calc(100%-2rem)] max-w-3xl overflow-y-auto rounded-xl border border-line p-0 shadow-2xl">
+    <div class="sticky top-0 z-10 flex items-center justify-between border-b border-line bg-panel px-5 py-3"><span class="flex items-center gap-2 font-mono text-xs text-muted"><svg class="icon h-4 w-4"><use href="#i-book"/></svg>project / README.md</span><button type="button" data-close-dialog class="quiet-button h-8 w-8 p-0" aria-label="実績の詳細を閉じる"><svg class="icon h-4 w-4"><use href="#i-close"/></svg></button></div>
+    <div id="dialog-body"></div>
+  </dialog>
+  <dialog id="search-dialog" aria-labelledby="search-heading" class="fixed inset-0 m-auto w-[calc(100%-2rem)] max-w-md rounded-xl border border-line p-5 shadow-2xl"><div class="mb-4 flex items-center justify-between"><h2 id="search-heading" class="text-sm font-semibold">セクションに移動</h2><button type="button" data-close-dialog class="quiet-button h-8 w-8 p-0" aria-label="移動メニューを閉じる"><svg class="icon h-4 w-4"><use href="#i-close"/></svg></button></div><div class="space-y-2"><a href="#about" data-jump class="quiet-button w-full justify-start"><svg class="icon"><use href="#i-book"/></svg>自己紹介<span class="ml-auto font-mono text-xs text-muted">Overview</span></a><a href="#projects" data-jump class="quiet-button w-full justify-start"><svg class="icon"><use href="#i-grid"/></svg>実績紹介<span class="ml-auto font-mono text-xs text-muted">Projects</span></a><a href="#skills" data-jump class="quiet-button w-full justify-start"><svg class="icon"><use href="#i-stack"/></svg>スキル<span class="ml-auto font-mono text-xs text-muted">Skills</span></a></div><p class="mt-4 font-mono text-[10px] text-muted">Esc to close</p></dialog>
+  <div id="toast" role="status" class="toast" hidden></div>
+  <noscript><p class="mx-auto max-w-xl p-6 text-sm">実績カードと詳細モーダルの表示にはJavaScriptを有効にしてください。</p></noscript>
+</body>
+</html>

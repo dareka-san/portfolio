@@ -1,0 +1,80 @@
+@import "tailwindcss" source(none);
+@source "../dist/**/*.html";
+@source "../dist/assets/*.js";
+
+@theme {
+  --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans JP", sans-serif;
+  --font-mono: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+  --color-page: var(--page);
+  --color-panel: var(--panel);
+  --color-subtle: var(--subtle);
+  --color-line: var(--line);
+  --color-ink: var(--ink);
+  --color-muted: var(--muted);
+  --color-accent: var(--accent);
+  --color-link: var(--link);
+}
+
+:root {
+  color-scheme: dark;
+  --page: #0d1117;
+  --panel: #0d1117;
+  --subtle: #161b22;
+  --line: #30363d;
+  --ink: #e6edf3;
+  --muted: #919ba8;
+  --accent: #56d084;
+  --link: #79b8ff;
+}
+
+:root[data-theme="light"] {
+  color-scheme: light;
+  --page: #ffffff;
+  --panel: #ffffff;
+  --subtle: #f6f8fa;
+  --line: #d0d7de;
+  --ink: #1f2328;
+  --muted: #59636e;
+  --accent: #18753c;
+  --link: #0969da;
+}
+
+@layer base {
+  html { scroll-behavior: smooth; scroll-padding-top: 90px; }
+  body { min-width: 320px; }
+  button, a, input { -webkit-tap-highlight-color: transparent; }
+  button:not(:disabled), a { cursor: pointer; }
+  button:disabled { cursor: not-allowed; }
+  ::selection { background: #23863666; }
+  :focus-visible { outline: 2px solid var(--link); outline-offset: 4px; }
+  dialog { color: var(--ink); background: var(--panel); }
+  dialog::backdrop { background: #010409bd; backdrop-filter: blur(6px); }
+}
+
+@layer components {
+  .icon { width: 18px; height: 18px; flex-shrink: 0; fill: none; stroke: currentColor; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
+  .quiet-button { @apply inline-flex items-center justify-center gap-2 rounded-md border border-line bg-subtle px-3 py-2 text-sm font-medium text-ink transition-colors hover:border-muted hover:bg-line/40; }
+  .section-label { @apply font-mono text-xs tracking-wider text-muted; }
+  .tag { @apply inline-flex items-center rounded-full border border-link/15 bg-link/10 px-2.5 py-0.5 text-[11px] font-medium text-link; }
+  .nav-link { @apply relative flex shrink-0 items-center gap-2 px-4 py-4 text-sm text-muted transition-colors hover:text-ink; }
+  .nav-link[aria-current="location"] { color: var(--ink); }
+  .nav-link[aria-current="location"]::after { content: ""; position: absolute; bottom: -1px; height: 2px; background: #f78166; left: 12px; right: 12px; border-radius: 2px; }
+  .filter-button { @apply rounded-md px-3 py-1.5 text-xs text-muted transition-colors hover:text-ink; }
+  .filter-button[aria-pressed="true"] { @apply bg-subtle font-medium text-ink shadow-sm ring-1 ring-line; }
+  .project-card { @apply flex h-full w-full flex-col overflow-hidden rounded-lg border border-line bg-panel text-left transition duration-200 hover:-translate-y-1 hover:border-muted hover:shadow-lg; }
+  .project-card .card-arrow { transition: transform 180ms ease; }
+  .project-card:hover .card-arrow { transform: translate(2px, -2px); }
+  .profile-grid { background-image: linear-gradient(#56d08409 1px, transparent 1px), linear-gradient(90deg, #56d08409 1px, transparent 1px); background-size: 22px 22px; }
+  .code-lines { counter-reset: line; }
+  .code-lines > div { counter-increment: line; }
+  .code-lines > div::before { content: counter(line); display: inline-block; width: 24px; margin-right: 18px; color: #59636e; text-align: right; user-select: none; }
+  .skill-dot { @apply h-2.5 w-2.5 rounded-full; }
+  .toast { @apply fixed bottom-6 left-1/2 z-50 -translate-x-1/2 rounded-lg border border-line bg-subtle px-5 py-3 text-sm text-ink shadow-xl; }
+  .modal-content h3 { @apply mb-3 text-sm font-semibold; }
+  .modal-content p { @apply text-sm leading-7 text-muted; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+}
