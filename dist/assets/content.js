@@ -7,7 +7,7 @@ export const profile = {
   intro: 'Webデザイン・フロントエンドエンジニアを専門領域として制作会社・事業会社に約16年携わってきました。\n近年はWeb制作に限らず、SNS、グラフィック、イベント、社内向けツールなど、目的に応じて手段を選択し、顧客・社員・企業とのコミュニケーション構築や業務環境の改善にも取り組んできました。\nその両方を大切に、Webのものづくりを楽しんでいます。',
   location: 'Japan / Kanagawa',
   githubUrl: 'https://github.com/dareka-san',
-  learning: 'Rive/Blenderを使用したインタラクション表現',
+  learning: 'Rive / Blenderを使用したインタラクション表現',
   isSample: false,
 };
 
@@ -70,14 +70,14 @@ export const projects = [
 
 export const careerEntries = [
   {
-    period: 'YYYY.MM — 現在',
-    organization: '現在の会社名・屋号',
-    role: '職種・役職',
-    description: '現在担当している業務やプロジェクト、チームでの役割などを記載します。',
-    isSample: true,
+    period: '2026.12 — 現在',
+    organization: 'フリーランス',
+    role: 'Webデザイナー',
+    description: 'Web制作・フロントエンド開発に従事するほか、家族が運営する事業のクリエイティブ領域を支援。また、生成AIを活用した業務効率化、社内向けツール・アプリケーションの開発にも取り組み、制作プロセスの最適化や新たな技術の実務活用を進めている。',
+    isSample: false,
   },
   {
-    period: 'YYYY.MM — YYYY.MM',
+    period: '2026.04 — 2026.09',
     organization: '以前の会社名・所属先',
     role: '職種・役職',
     description: '担当した業務、経験したこと、取り組んだ課題や成果などを記載します。',

@@ -47,10 +47,10 @@ if (careerTimeline) {
     <li class="relative border-l border-line pb-8 pl-6 last:border-transparent last:pb-0">
       <span aria-hidden="true" class="absolute -left-[5px] top-1 h-2.5 w-2.5 rounded-full border-2 border-page ${index === 0 ? 'bg-accent' : 'bg-muted'}"></span>
       <div class="grid gap-3 sm:grid-cols-[160px_minmax(0,1fr)] sm:gap-6">
-        <p class="font-mono text-[11px] leading-6 text-muted">${escapeHtml(entry.period)}</p>
+        <p class="font-mono text-[14px] leading-6">${escapeHtml(entry.period)}</p>
         <div class="min-w-0"><div class="flex flex-wrap items-center gap-2"><h3 class="text-sm font-semibold text-ink">${escapeHtml(entry.organization)}</h3>${entry.isSample ? '<span class="rounded-full border border-line px-2 py-0.5 text-[10px] text-muted">記入例</span>' : ''}</div>
         <p class="mt-1 text-xs text-accent">${escapeHtml(entry.role)}</p>
-        <p class="mt-3 whitespace-pre-line text-xs leading-6 text-muted">${escapeHtml(entry.description)}</p></div>
+        <p class="mt-3 whitespace-pre-line text-xs leading-6">${escapeHtml(entry.description)}</p></div>
       </div>
     </li>`).join('');
 }
