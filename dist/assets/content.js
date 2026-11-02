@@ -2,22 +2,22 @@
 export const profile = {
   name: 'Kano Sasaki',
   handle: 'dareka-san',
-  role: 'Frontend Developer\n& Curious Builder',
-  tagline: 'コードを書くこと。仕組みを知ること。\n小さな「おもしろい」を、かたちに。',
-  intro: 'アイデアが動き出す瞬間が好きです。\n使いやすいUIと、読みやすいコード。\nその両方を大切に、Webのものづくりを楽しんでいます。',
-  location: 'Japan',
+  role: 'Web Designer / Director / Frontend Engineer',
+  tagline: 'Webを専門領域に、人と組織の課題をデザインと技術で解決すること。',
+  intro: 'Webデザイン・フロントエンドエンジニアを専門領域として制作会社・事業会社に約16年携わってきました。\n近年はWeb制作に限らず、SNS、グラフィック、イベント、社内向けツールなど、目的に応じて手段を選択し、顧客・社員・企業とのコミュニケーション構築や業務環境の改善にも取り組んできました。\nその両方を大切に、Webのものづくりを楽しんでいます。',
+  location: 'Japan / Kanagawa',
   githubUrl: 'https://github.com/dareka-san',
   learning: 'アクセシビリティと、心地よいインタラクションを探求中。',
-  isSample: true,
+  isSample: false,
 };
 
 export const projects = [
   {
-    id: 'orbit-dashboard', title: 'orbit-dashboard', subtitle: '日々の情報に、ひとつの居場所を。',
+    id: 'iface-website', title: 'iFace公式サイト', subtitle: '日々の情報に、ひとつの居場所を。',
     description: '必要な情報をひと目で把握する、シンプルな分析ダッシュボード。',
-    image: './assets/orbit.svg', imageAlt: 'ダークテーマの分析ダッシュボードのサンプル画面',
-    category: 'application', kind: 'Web Application', tags: ['React', 'TypeScript', 'Tailwind CSS'],
-    language: 'TypeScript', color: '#3178c6', year: '2026', role: 'UI設計 / フロントエンド',
+    image: './assets/img-iface-1.jpg', imageAlt: 'ダークテーマの分析ダッシュボードのサンプル画面',
+    category: 'application', kind: 'Hamee株式会社様', tags: ['React', 'TypeScript', 'Tailwind CSS'],
+    language: 'ほげホゲ', color: '#3178c6', year: '2026', role: 'UI設計 / フロントエンド',
     overview: '複数のデータをひとつの画面で確認するダッシュボードのサンプルです。情報量が多くても迷わず使えるよう、優先順位と余白を意識した構成にしています。',
     challenge: '指標・グラフ・履歴が混在する画面で、視線の流れと情報のまとまりを整理することをテーマにしました。',
     features: ['主要な指標をまとめたサマリーカード', '期間別に比較できるグラフのUI設計', '画面幅に合わせて組み替わるレスポンシブレイアウト'],
@@ -59,6 +59,30 @@ export const projects = [
     features: ['円形のプログレス表示', '作業と休憩を切り替えるモード設計', 'キーボード操作と通知音を想定したUI'],
     lesson: '状態が少ない小さなツールでも、停止・再開・完了時の振る舞いを丁寧に考える必要があると学びました。',
     liveUrl: '', repositoryUrl: '',
+  },
+];
+
+export const careerEntries = [
+  {
+    period: 'YYYY.MM — 現在',
+    organization: '現在の会社名・屋号',
+    role: '職種・役職',
+    description: '現在担当している業務やプロジェクト、チームでの役割などを記載します。',
+    isSample: true,
+  },
+  {
+    period: 'YYYY.MM — YYYY.MM',
+    organization: '以前の会社名・所属先',
+    role: '職種・役職',
+    description: '担当した業務、経験したこと、取り組んだ課題や成果などを記載します。',
+    isSample: true,
+  },
+  {
+    period: 'YYYY.MM — YYYY.MM',
+    organization: '学校名・最初の所属先',
+    role: '学んだ分野・キャリアの出発点',
+    description: '専門として学んだことや、ものづくりを始めたきっかけなどを記載します。',
+    isSample: true,
   },
 ];
 
