@@ -24,7 +24,7 @@ function renderProjects(filter = 'all') {
     <button type="button" class="project-card" data-project="${escapeHtml(project.id)}" aria-haspopup="dialog" aria-label="${escapeHtml(project.title)}の詳細を見る">
       <div class="w-full overflow-hidden border-b border-line bg-subtle"><img src="${escapeHtml(project.image)}" alt="${escapeHtml(project.imageAlt)}" width="800" height="420" loading="lazy" class="aspect-[800/420] w-full object-cover"></div>
       <div class="flex flex-1 flex-col px-5 pb-4 pt-4"><div class="flex items-center justify-between gap-3"><h3 class="flex min-w-0 items-center gap-2 font-mono text-[14px] font-semibold text-link">${icon('book', 'h-3.5 w-3.5 text-muted')}<span class="truncate">${escapeHtml(project.title)}</span></h3>${icon('arrow', 'card-arrow h-4 w-4 text-muted')}</div>
-      <p class="mt-2 text-[12px] leading-6 text-muted">${escapeHtml(project.description)}</p>
+      <p class="mt-2 text-[12px] leading-6">${escapeHtml(project.description)}</p>
       <div class="mb-4 mt-3 flex flex-wrap gap-1.5">${project.tags.map((tag) => `<span class="tag">${escapeHtml(tag)}</span>`).join('')}</div>
       <div class="mt-auto flex items-center justify-between border-t border-line/70 pt-3 text-[12px] text-muted"><span class="flex items-center gap-1.5"><span class="h-2 w-2 rounded-full" style="background:${escapeHtml(project.color)}"></span>${escapeHtml(project.language)}</span><span class="font-mono">${escapeHtml(project.kind)}<span class="mx-1">/</span>${escapeHtml(project.year)}</span></div></div>
     </button>`).join('');
@@ -86,7 +86,7 @@ document.querySelector('#project-grid').addEventListener('click', (event) => {
     <div class="mb-7 rounded-md border border-line bg-subtle px-4 py-3 text-xs"><span class="mr-4 text-muted">担当範囲</span>${escapeHtml(project.role)}</div>
     <section class="mb-6"><h3>概要</h3><p>${escapeHtml(project.overview)}</p></section>
     <section class="mb-6"><h3>課題とアプローチ</h3><p>${escapeHtml(project.challenge)}</p></section>
-    <section class="mb-6"><h3>主なポイント</h3><ul class="space-y-3">${project.features.map((feature) => `<li class="flex items-start gap-2 text-sm leading-6 text-muted">${icon('check', 'mt-1 h-4 w-4 text-accent')}<span>${escapeHtml(feature)}</span></li>`).join('')}</ul></section>
+    <section class="mb-6"><h3>主なポイント</h3><ul class="space-y-3">${project.features.map((feature) => `<li class="flex items-start gap-2 text-sm leading-6">${icon('check', 'mt-1 h-4 w-4 text-accent')}<span>${escapeHtml(feature)}</span></li>`).join('')}</ul></section>
     <section><h3>学んだこと</h3><p>${escapeHtml(project.lesson)}</p></section>
     ${externalLinks.length ? `<div class="mt-7 flex flex-wrap gap-3 border-t border-line pt-5">${externalLinks.map((link) => `<a href="${escapeHtml(link.url)}" class="quiet-button" target="_blank" rel="noopener noreferrer">${escapeHtml(link.text)}${icon('arrow', 'h-4 w-4')}</a>`).join('')}</div>` : '<p class="mt-7 border-t border-line pt-4 !text-xs">外部リンクは未設定です。</p>'}
     </div>`;
