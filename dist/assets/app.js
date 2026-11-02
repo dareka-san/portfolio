@@ -13,10 +13,6 @@ document.querySelectorAll('[data-profile]').forEach((element) => {
 });
 document.title = `${profile.name} — Developer Portfolio`;
 document.querySelector('#year').textContent = new Date().getFullYear();
-const sampleNotice = document.querySelector('#sample-notice');
-if (sampleNotice) sampleNotice.hidden = !profile.isSample;
-const githubLink = document.querySelector('#github-link');
-if (githubLink && validUrl(profile.githubUrl)) { githubLink.href = validUrl(profile.githubUrl); githubLink.classList.remove('hidden'); githubLink.classList.add('flex'); }
 document.querySelector('#project-total').textContent = projects.length;
 
 function renderProjects(filter = 'all') {
@@ -56,7 +52,6 @@ if (careerTimeline) {
 }
 
 const projectDialog = document.querySelector('#project-dialog');
-const searchDialog = document.querySelector('#search-dialog');
 let projectSlider = null;
 projectDialog.addEventListener('close', () => {
   projectSlider?.destroy(true);
@@ -134,23 +129,6 @@ document.querySelector('#project-grid').addEventListener('click', (event) => {
   projectSlider = slider;
   slider.mount();
 });
-
-document.querySelector('#search-button')?.addEventListener('click', () => openDialog(searchDialog));
-document.addEventListener('keydown', (event) => {
-  const isEditing = event.target instanceof HTMLElement && (event.target.isContentEditable || ['INPUT', 'TEXTAREA', 'SELECT'].includes(event.target.tagName));
-  if (event.key === '/' && !isEditing && !event.ctrlKey && !event.metaKey && !event.altKey && !document.querySelector('dialog[open]')) { event.preventDefault(); openDialog(searchDialog); }
-});
-document.querySelectorAll('[data-jump]').forEach((link) => link.addEventListener('click', () => searchDialog.close()));
-
-const themeButton = document.querySelector('#theme-button');
-function setTheme(theme) {
-  document.documentElement.dataset.theme = theme;
-  themeButton?.setAttribute('aria-label', theme === 'dark' ? 'ライトテーマに切り替える' : 'ダークテーマに切り替える');
-  document.querySelector('meta[name="theme-color"]').content = theme === 'dark' ? '#0d1117' : '#ffffff';
-  try { localStorage.setItem('portfolio-theme', theme); } catch { /* 保存不可でも表示は切り替える。 */ }
-}
-try { setTheme(localStorage.getItem('portfolio-theme') === 'light' ? 'light' : 'dark'); } catch { setTheme('dark'); }
-themeButton?.addEventListener('click', () => setTheme(document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark'));
 
 let toastTimer;
 function showToast(message) {
