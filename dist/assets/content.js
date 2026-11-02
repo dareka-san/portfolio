@@ -7,7 +7,7 @@ export const profile = {
   intro: 'Webデザイン・フロントエンドエンジニアを専門領域として制作会社・事業会社に約16年携わってきました。\n近年はWeb制作に限らず、SNS、グラフィック、イベント、社内向けツールなど、目的に応じて手段を選択し、顧客・社員・企業とのコミュニケーション構築や業務環境の改善にも取り組んできました。\nその両方を大切に、Webのものづくりを楽しんでいます。',
   location: 'Japan / Kanagawa',
   githubUrl: 'https://github.com/dareka-san',
-  learning: 'アクセシビリティと、心地よいインタラクションを探求中。',
+  learning: 'Rive/Blenderを使用したインタラクション表現',
   isSample: false,
 };
 
@@ -93,16 +93,16 @@ export const careerEntries = [
 ];
 
 export const skillGroups = [
-  { title: 'Frontend', label: 'インターフェースをつくる', icon: 'code', skills: [
+  { title: 'Frontend', label: 'フロントエンド', icon: 'code', skills: [
     { name: 'HTML / CSS', color: '#e77b56' }, { name: 'JavaScript', color: '#e3b341' },
     { name: 'TypeScript', color: '#3178c6' }, { name: 'React', color: '#58c4dc' },
     { name: 'Tailwind CSS', color: '#38bdf8' },
   ] },
-  { title: 'Tools & Workflow', label: 'つくる過程も、心地よく', icon: 'terminal', skills: [
+  { title: 'Tools & Workflow', label: 'ツール・ワークフロー', icon: 'terminal', skills: [
     { name: 'Git / GitHub', color: '#f78166' }, { name: 'VS Code', color: '#58a6ff' },
     { name: 'Figma', color: '#d2a8ff' }, { name: 'npm', color: '#e56b6f' },
   ] },
-  { title: 'Currently Learning', label: '好奇心の、その先へ', icon: 'stack', skills: [
+  { title: 'Currently Learning', label: '🔥', icon: 'stack', skills: [
     { name: 'Accessibility', color: '#56d084' }, { name: 'UI / UX Design', color: '#d2a8ff' },
     { name: 'Web Performance', color: '#e3b341' },
   ] },
