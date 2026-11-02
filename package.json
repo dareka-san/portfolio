@@ -4,14 +4,21 @@
   "private": true,
   "type": "module",
   "scripts": {
+    "prepare:assets": "node scripts/prepare-assets.mjs",
+    "predev": "npm run prepare:assets",
     "dev": "node scripts/dev.mjs",
+    "prebuild": "npm run prepare:assets",
     "build": "tailwindcss -i ./src/styles.css -o ./dist/assets/styles.css --minify",
     "watch": "tailwindcss -i ./src/styles.css -o ./dist/assets/styles.css --watch",
-    "check": "node --check dist/assets/app.js && node --check dist/assets/content.js && node --check scripts/dev.mjs && node --check scripts/preview.mjs",
+    "check": "node --check dist/assets/app.js && node --check dist/assets/content.js && node --check scripts/dev.mjs && node --check scripts/preview.mjs && node --check scripts/prepare-assets.mjs",
+    "prepreview": "npm run prepare:assets",
     "preview": "node scripts/preview.mjs"
   },
   "devDependencies": {
     "@tailwindcss/cli": "^4.1.0",
     "tailwindcss": "^4.1.0"
+  },
+  "dependencies": {
+    "@splidejs/splide": "^4.1.4"
   }
 }

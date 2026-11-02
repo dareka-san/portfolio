@@ -1,4 +1,5 @@
 @import "tailwindcss" source(none);
+@import "@splidejs/splide/css/core" layer(components);
 @source "../dist/**/*.html";
 @source "../dist/assets/*.js";
 
@@ -72,6 +73,25 @@
   .toast { @apply fixed bottom-6 left-1/2 z-50 -translate-x-1/2 rounded-lg border border-line bg-subtle px-5 py-3 text-sm text-ink shadow-xl; }
   .modal-content h3 { @apply mb-3 text-sm font-semibold; }
   .modal-content p { @apply text-sm leading-7; }
+
+  .project-gallery { position: relative; border-bottom: 1px solid var(--line); background: var(--subtle); }
+  .project-gallery .splide__slide { display: flex; align-items: center; justify-content: center; aspect-ratio: 800 / 460; }
+  .project-gallery .splide__slide img { display: block; width: 100%; height: 100%; object-fit: contain; }
+  .project-gallery .gallery-controls { position: relative; display: flex; min-height: 48px; align-items: center; justify-content: center; border-top: 1px solid var(--line); background: var(--panel); }
+  .project-gallery .gallery-controls[hidden] { display: none; }
+  .project-gallery .gallery-count { position: absolute; right: 16px; font-family: var(--font-mono); font-size: 11px; color: var(--muted); }
+  .project-gallery .splide__arrow { position: absolute; top: calc((100% - 48px) / 2); z-index: 1; display: flex; width: 40px; height: 40px; align-items: center; justify-content: center; transform: translateY(-50%); border: 1px solid var(--line); border-radius: 8px; background: var(--panel); color: var(--ink); box-shadow: 0 2px 8px #01040933; transition: border-color 160ms, color 160ms; }
+  .project-gallery .splide__arrow:hover { border-color: var(--accent); color: var(--accent); }
+  .project-gallery .splide__arrow--prev { left: 12px; }
+  .project-gallery .splide__arrow--next { right: 12px; }
+  .project-gallery .splide__arrow svg { width: 16px; height: 16px; fill: currentColor; }
+  .project-gallery .splide__arrow--prev svg { transform: scaleX(-1); }
+  .project-gallery .splide__pagination { gap: 2px; padding: 0; }
+  .project-gallery .splide__pagination li { display: flex; }
+  .project-gallery .splide__pagination__page { display: grid; width: 28px; height: 32px; place-items: center; border: 0; background: transparent; }
+  .project-gallery .splide__pagination__page::after { content: ""; width: 6px; height: 6px; border-radius: 999px; background: var(--muted); transition: width 160ms, background-color 160ms; }
+  .project-gallery .splide__pagination__page:hover::after { background: var(--ink); }
+  .project-gallery .splide__pagination__page.is-active::after { width: 18px; background: var(--accent); }
 }
 
 @media (prefers-reduced-motion: reduce) {
