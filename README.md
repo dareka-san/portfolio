@@ -37,13 +37,14 @@ npm run check
 
 ## 自分の情報への差し替え
 
-`dist/assets/content.js` にプロフィール、実績、スキルをまとめています。
+`dist/assets/content.js` にプロフィール、実績、スキル、経歴をまとめています。
 
 `data-profile` 属性が付いたプロフィール本文は、ページ表示時に `content.js` の内容で置き換わります。この本文を変えるときは `index.html` ではなく `content.js` を編集してください。レイアウトは `dist/index.html`、色や追加スタイルは `src/styles.css` で調整します。`dist/assets/styles.css` は自動生成されるため直接編集しません。
 
 - `profile`: 名前、ハンドル、自己紹介、GitHub URLなど。差し替え後に `isSample` を `false` にするとプレビュー表示が消えます。
 - `projects`: タイトル、説明、サムネイル、担当範囲、課題、工夫、学び、公開URLなど。
 - `skillGroups`: スキルの分類と項目。
+- `careerEntries`: 新しい順の経歴。期間・所属・役職・説明を編集できます。実際の内容に差し替えた項目は `isSample` を `false` にすると「記入例」の表示が消えます。
 
 名前・ハンドル・GitHub URLは、接続されたGitHubプロフィールに合わせています。自己紹介文・職種・スキル・4件の実績はサンプルです。サムネイルも、このサイトのために作成したサンプル画像です。実際の実績へ差し替えて使用してください。公開前に `dist/index.html` の説明文、アバター、サイドバーの趣味タグ、自己紹介の見出しとコード例も確認してください。
 
