@@ -6,7 +6,7 @@
   <meta name="theme-color" content="#0d1117">
   <meta name="description" content="コードとデザインで、アイデアをかたちにする。自己紹介・スキル・制作実績をまとめたポートフォリオ。">
   <title>Kano Sasaki — Developer Portfolio</title>
-  <link rel="icon" href="./assets/avatar.svg" type="image/svg+xml">
+  <link rel="icon" href="./assets/avatar.png" type="image/png">
   <link rel="stylesheet" href="./assets/styles.css">
   <script type="module" src="./assets/app.js"></script>
 </head>
@@ -98,10 +98,14 @@
       <section id="projects" aria-labelledby="projects-heading">
         <div class="mb-5 flex flex-wrap items-end justify-between gap-4">
           <div><h2 id="projects-heading" class="flex items-center gap-2.5 text-lg font-semibold"><svg class="icon text-muted"><use href="#i-grid"/></svg>Projects</h2></div>
-          <div role="group" aria-label="実績のカテゴリー" class="flex gap-1">
+          <div role="group" aria-label="実績のカテゴリー" class="flex flex-wrap gap-1">
             <button type="button" class="filter-button" data-filter="all" aria-pressed="true">All</button>
             <button type="button" class="filter-button" data-filter="application" aria-pressed="false">Application</button>
             <button type="button" class="filter-button" data-filter="website" aria-pressed="false">Website</button>
+            <button type="button" class="filter-button" data-filter="products" aria-pressed="false">Products</button>
+            <button type="button" class="filter-button" data-filter="illust" aria-pressed="false">Illust</button>
+            <button type="button" class="filter-button" data-filter="snsmarketing" aria-pressed="false">SNSmarketing</button>
+            <button type="button" class="filter-button" data-filter="communicationdesign" aria-pressed="false">CommunicationDesign</button>
           </div>
         </div>
         <div id="project-grid" class="grid gap-4 sm:grid-cols-2"></div>
@@ -131,7 +135,7 @@
   </footer>
 
   <dialog id="project-dialog" aria-labelledby="dialog-title" class="fixed inset-0 m-auto max-h-[90dvh] w-[calc(100%-2rem)] max-w-7xl overflow-y-auto rounded-xl border border-line p-0 shadow-2xl">
-    <div class="sticky top-0 z-10 flex items-center justify-between border-b border-line bg-panel px-5 py-3"><span class="flex items-center gap-2 font-mono text-xs text-muted"><svg class="icon h-4 w-4"><use href="#i-book"/></svg><span data-projects="title">Project</span></span><button type="button" data-close-dialog class="quiet-button h-8 w-8 p-0" aria-label="実績の詳細を閉じる"><svg class="icon h-4 w-4"><use href="#i-close"/></svg></button></div>
+    <div class="sticky top-0 z-10 flex items-center justify-between border-b border-line bg-panel px-5 py-3"><span class="flex items-center gap-2 font-mono text-xs tracking-wider font-semibold"><svg class="icon h-4 w-4"><use href="#i-book"/></svg><span data-projects="title">Project</span></span><button type="button" data-close-dialog class="quiet-button h-8 w-8 p-0" aria-label="実績の詳細を閉じる"><svg class="icon h-4 w-4"><use href="#i-close"/></svg></button></div>
     <div id="dialog-body"></div>
   </dialog>
   <div id="toast" role="status" class="toast" hidden></div>

@@ -6,6 +6,7 @@ const icon = (name, classes = '') => `<svg class="icon ${classes}" aria-hidden="
 const validUrl = (value) => {
   try { const url = new URL(value); return ['https:', 'http:'].includes(url.protocol) ? url.href : ''; } catch { return ''; }
 };
+const availableProjects = projects.filter((project) => project.isHidden !== true);
 
 document.querySelectorAll('[data-profile]').forEach((element) => {
   const value = profile[element.dataset.profile];
@@ -13,15 +14,15 @@ document.querySelectorAll('[data-profile]').forEach((element) => {
 });
 document.title = `${profile.name} — Developer Portfolio`;
 document.querySelector('#year').textContent = new Date().getFullYear();
-document.querySelector('#project-total').textContent = projects.length;
+document.querySelector('#project-total').textContent = availableProjects.length;
 
 function renderProjects(filter = 'all') {
-  const visibleProjects = projects.filter((project) => filter === 'all' || project.category === filter);
+  const visibleProjects = availableProjects.filter((project) => filter === 'all' || project.category === filter);
   document.querySelector('#project-grid').innerHTML = visibleProjects.map((project) => `
     <button type="button" class="project-card" data-project="${escapeHtml(project.id)}" aria-haspopup="dialog" aria-label="${escapeHtml(project.title)}の詳細を見る">
-      <div class="w-full overflow-hidden border-b border-line bg-subtle"><img src="${escapeHtml(project.image)}" alt="${escapeHtml(project.imageAlt)}" width="800" height="420" loading="lazy" class="aspect-[800/420] w-full object-cover"></div>
+      <div class="w-full overflow-hidden border-b border-line bg-[#ffffff]"><img src="${escapeHtml(project.image)}" alt="${escapeHtml(project.imageAlt)}" width="800" height="420" loading="lazy" class="aspect-[800/420] w-full object-cover"></div>
       <div class="flex flex-1 flex-col px-5 pb-4 pt-4"><div class="flex items-center justify-between gap-3"><h3 class="flex min-w-0 items-center gap-2 font-mono text-[14px] font-semibold text-link">${icon('book', 'h-3.5 w-3.5 text-muted')}<span class="truncate">${escapeHtml(project.title)}</span></h3>${icon('arrow', 'card-arrow h-4 w-4 text-muted')}</div>
-      <p class="mt-2 text-[12px] leading-6">${escapeHtml(project.description)}</p>
+      <p class="mt-2 text-[12px] leading-6">${escapeHtml(project.subtitle)}</p>
       <div class="mb-5 mt-3 flex flex-wrap gap-1.5">${project.tags.map((tag) => `<span class="tag">${escapeHtml(tag)}</span>`).join('')}</div>
       <p class="mb-4 font-mono text-[12px] text-muted">${escapeHtml(project.kind)}<span class="mx-1">/</span>${escapeHtml(project.year)}</p>
       <div class="mt-auto flex items-center gap-1.5 border-t border-line/70 pt-3 text-[12px] text-muted"><span class="h-2 w-2 shrink-0 rounded-full" style="background:${escapeHtml(project.color)}"></span><span>${escapeHtml(project.role)}</span></div></div>
@@ -74,7 +75,7 @@ document.querySelectorAll('[data-close-dialog]').forEach((button) => button.addE
 document.querySelector('#project-grid').addEventListener('click', (event) => {
   const button = event.target.closest('[data-project]');
   if (!button) return;
-  const project = projects.find((item) => item.id === button.dataset.project);
+  const project = availableProjects.find((item) => item.id === button.dataset.project);
   if (!project) return;
   projectSlider?.destroy(true);
   projectSlider = null;
@@ -88,7 +89,7 @@ document.querySelector('#project-grid').addEventListener('click', (event) => {
     <div class="splide project-gallery" role="group" aria-label="${escapeHtml(project.title)}の実績写真">
       <div class="splide__track"><ul class="splide__list">${galleryImages.map((image, index) => `
         <li class="splide__slide"><img src="${escapeHtml(image.src)}" alt="${escapeHtml(image.alt || project.imageAlt)}" width="800" height="420" loading="${index === 0 ? 'eager' : 'lazy'}"></li>`).join('')}
-      </ul></div>
+      </ul><div class="gallery-scroll-cue" aria-hidden="true"><span class="gallery-scroll-label">Scroll</span><span class="gallery-scroll-line"></span></div></div>
       <div class="gallery-controls" ${hasMultipleImages ? '' : 'hidden'}><ul class="splide__pagination"></ul><span class="gallery-count" aria-hidden="true"><span data-gallery-index>01</span> / ${String(galleryImages.length).padStart(2, '0')}</span></div>
     </div>
     <div class="modal-content px-6 py-6 sm:px-8"><div class="flex items-center gap-2 font-mono text-[14px] text-muted"><span>${escapeHtml(project.kind)}</span><span>·</span><span>${escapeHtml(project.year)}</span>${profile.isSample ? '<span class="ml-auto rounded-full border border-line px-2 py-0.5">Sample project</span>' : ''}</div>
@@ -96,9 +97,8 @@ document.querySelector('#project-grid').addEventListener('click', (event) => {
     <div class="mb-6 mt-4 flex flex-wrap gap-2">${project.tags.map((tag) => `<span class="tag">${escapeHtml(tag)}</span>`).join('')}</div>
     <div class="mb-7 rounded-md border border-line bg-subtle px-4 py-3 text-xs"><span class="mr-4 text-muted">担当範囲</span>${escapeHtml(project.role)}</div>
     <section class="mb-6"><h3>概要</h3><p>${escapeHtml(project.overview)}</p></section>
-    <section class="mb-6"><h3>課題とアプローチ</h3><p>${escapeHtml(project.challenge)}</p></section>
-    <section class="mb-6"><h3>主なポイント</h3><ul class="space-y-3">${project.features.map((feature) => `<li class="flex items-start gap-2 text-sm leading-6">${icon('check', 'mt-1 h-4 w-4 text-accent')}<span>${escapeHtml(feature)}</span></li>`).join('')}</ul></section>
-    <section><h3>学んだこと</h3><p>${escapeHtml(project.lesson)}</p></section>
+    ${typeof project.challenge === 'string' && project.challenge.trim() ? `<section class="mb-6"><h3>課題とアプローチ</h3><p>${escapeHtml(project.challenge)}</p></section>` : ''}
+    ${Array.isArray(project.features) && project.features.length ? `<section class="mb-6"><h3>主なポイント</h3><ul class="space-y-3">${project.features.map((feature) => `<li class="flex items-start gap-2 text-sm leading-6">${icon('check', 'mt-1 h-4 w-4 text-accent')}<span>${escapeHtml(feature)}</span></li>`).join('')}</ul></section>` : ''}
     ${externalLinks.length ? `<div class="mt-7 flex flex-wrap gap-3 border-t border-line pt-5">${externalLinks.map((link) => `<a href="${escapeHtml(link.url)}" class="quiet-button" target="_blank" rel="noopener noreferrer">${escapeHtml(link.text)}${icon('arrow', 'h-4 w-4')}</a>`).join('')}</div>` : '<p class="mt-7 border-t border-line pt-4 !text-xs">外部リンクは未設定です。</p>'}
     </div>`;
   projectDialog.querySelectorAll('[data-projects]').forEach((element) => {
