@@ -62,15 +62,24 @@ function openDialog(dialog) {
   dialog.showModal();
   document.body.style.overflow = 'hidden';
 }
+async function closeDialog(dialog) {
+  if (!dialog.open || dialog.classList.contains('is-closing')) return;
+  dialog.classList.add('is-closing');
+  const closingAnimations = dialog.getAnimations().filter((animation) => animation.animationName === 'dialog-fade-out');
+  await Promise.allSettled(closingAnimations.map((animation) => animation.finished));
+  if (dialog.open) dialog.close();
+  dialog.classList.remove('is-closing');
+}
 document.querySelectorAll('dialog').forEach((dialog) => {
   dialog.addEventListener('close', () => { document.body.style.overflow = ''; });
+  dialog.addEventListener('cancel', (event) => { event.preventDefault(); closeDialog(dialog); });
   dialog.addEventListener('click', (event) => {
     if (event.target !== dialog) return;
     const bounds = dialog.getBoundingClientRect();
-    if (event.clientX < bounds.left || event.clientX > bounds.right || event.clientY < bounds.top || event.clientY > bounds.bottom) dialog.close();
+    if (event.clientX < bounds.left || event.clientX > bounds.right || event.clientY < bounds.top || event.clientY > bounds.bottom) closeDialog(dialog);
   });
 });
-document.querySelectorAll('[data-close-dialog]').forEach((button) => button.addEventListener('click', () => button.closest('dialog').close()));
+document.querySelectorAll('[data-close-dialog]').forEach((button) => button.addEventListener('click', () => closeDialog(button.closest('dialog'))));
 
 document.querySelector('#project-grid').addEventListener('click', (event) => {
   const button = event.target.closest('[data-project]');
@@ -81,6 +90,8 @@ document.querySelector('#project-grid').addEventListener('click', (event) => {
   projectSlider = null;
   const galleryImages = project.images?.length ? project.images : [{ src: project.image, alt: project.imageAlt }];
   const hasMultipleImages = galleryImages.length > 1;
+  const challengeTitle = typeof project.challengeTitle === 'string' ? project.challengeTitle.trim() : '';
+  const featuresTitle = typeof project.featuresTitle === 'string' ? project.featuresTitle.trim() : '';
   const externalLinks = [
     { url: validUrl(project.liveUrl), text: 'サイトを見る' },
     { url: validUrl(project.repositoryUrl), text: 'ソースコードを見る' },
@@ -97,9 +108,9 @@ document.querySelector('#project-grid').addEventListener('click', (event) => {
     <div class="mb-6 mt-4 flex flex-wrap gap-2">${project.tags.map((tag) => `<span class="tag">${escapeHtml(tag)}</span>`).join('')}</div>
     <div class="mb-7 rounded-md border border-line bg-subtle px-4 py-3 text-xs"><span class="mr-4 text-muted">担当範囲</span>${escapeHtml(project.role)}</div>
     <section class="mb-6"><h3>概要</h3><p>${escapeHtml(project.overview)}</p></section>
-    ${typeof project.challenge === 'string' && project.challenge.trim() ? `<section class="mb-6"><h3>課題とアプローチ</h3><p>${escapeHtml(project.challenge)}</p></section>` : ''}
-    ${Array.isArray(project.features) && project.features.length ? `<section class="mb-6"><h3>主なポイント</h3><ul class="space-y-3">${project.features.map((feature) => `<li class="flex items-start gap-2 text-sm leading-6">${icon('check', 'mt-1 h-4 w-4 text-accent')}<span>${escapeHtml(feature)}</span></li>`).join('')}</ul></section>` : ''}
-    ${externalLinks.length ? `<div class="mt-7 flex flex-wrap gap-3 border-t border-line pt-5">${externalLinks.map((link) => `<a href="${escapeHtml(link.url)}" class="quiet-button" target="_blank" rel="noopener noreferrer">${escapeHtml(link.text)}${icon('arrow', 'h-4 w-4')}</a>`).join('')}</div>` : '<p class="mt-7 border-t border-line pt-4 !text-xs">外部リンクは未設定です。</p>'}
+    ${typeof project.challenge === 'string' && project.challenge.trim() ? `<section class="mb-6"><h3>${escapeHtml(challengeTitle || '課題とアプローチ')}</h3><p>${escapeHtml(project.challenge)}</p></section>` : ''}
+    ${Array.isArray(project.features) && project.features.length ? `<section class="mb-6"><h3>${escapeHtml(featuresTitle || '主なポイント')}</h3><ul class="space-y-3">${project.features.map((feature) => `<li class="flex items-start gap-2 text-sm leading-6">${icon('check', 'mt-1 h-4 w-4 text-accent')}<span>${escapeHtml(feature)}</span></li>`).join('')}</ul></section>` : ''}
+    ${externalLinks.length ? `<div class="mt-7 flex flex-wrap gap-3 border-t border-line pt-5">${externalLinks.map((link) => `<a href="${escapeHtml(link.url)}" class="quiet-button" target="_blank" rel="noopener noreferrer">${escapeHtml(link.text)}${icon('arrow', 'h-4 w-4')}</a>`).join('')}</div>` : ''}
     </div>`;
   projectDialog.querySelectorAll('[data-projects]').forEach((element) => {
     const value = project[element.dataset.projects];

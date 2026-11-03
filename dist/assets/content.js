@@ -12,6 +12,7 @@ export const profile = {
 };
 
 // 各実績に isHidden: true を追加すると非表示。false または未指定なら表示します。
+// challengeTitle / featuresTitle で見出しを変更できます。空欄・未指定なら標準の見出しを使います。
 export const projects = [
   {
     id: 'hughome-cmd', title: 'HUGHOME Corporate Communication Design', subtitle: '設計・施工会社「HUGHOME」のコーポレートコミュニケーションデザインを担当',
@@ -32,7 +33,7 @@ export const projects = [
     overview: '新築注文住宅・リノベーションを手掛ける「HUGHOME」にて、Webサイトの制作・運用を中心に、企業全体のコミュニケーションに関わる企画・設計・制作を担当。',
     challenge: '入社当時は、企業の認知拡大や新規顧客の獲得に加え、社内スタッフとの理念の共有、協力会社との連携、情報管理や業務のデジタル化など、複数の課題を抱えていました。\n少人数の組織で経営者と近い距離にあったことから、日々の業務を通じて企業やサービスの課題を把握し、改善に向けた企画・提案から制作・運用まで幅広く担当。\nWebサイトやSNSによる情報発信だけでなく、カタログ・販促物・アパレル・イベントなど、課題や対象者に応じて適切な手段を選択。顧客、スタッフ、協力会社それぞれとの接点を整備し、企業の価値や考え方を共有するためのコミュニケーション設計に取り組みました。',
     features: ['顧客とのコミュニケーション設計', '社内スタッフとの理念・価値観の共有', '協力会社とのコミュニケーション設計', '既存サービスの再構築と事業展開', '社内業務のデジタル化と業務改善'],
-    liveUrl: 'https://hughome.net/journal', repositoryUrl: '',
+    liveUrl: '', repositoryUrl: '',
   },
   {
     id: 'iface-website', title: 'iFace', subtitle: 'スマートフォンケースブランド「iFace」の公式サイトTOPページリニューアル。ユーザーリサーチからUI/UXを改善',

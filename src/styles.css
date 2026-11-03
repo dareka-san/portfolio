@@ -73,6 +73,10 @@
   .toast { @apply fixed bottom-6 left-1/2 z-50 -translate-x-1/2 rounded-lg border border-line bg-subtle px-5 py-3 text-sm text-ink shadow-xl; }
   .modal-content h3 { @apply mb-3 text-sm font-semibold; }
   .modal-content p { @apply text-sm leading-7; white-space: pre-line; }
+  #project-dialog[open] { animation: dialog-fade-in 240ms ease-out both; }
+  #project-dialog[open]::backdrop { animation: dialog-backdrop-in 240ms ease-out both; }
+  #project-dialog[open].is-closing { animation: dialog-fade-out 180ms ease-in both; }
+  #project-dialog[open].is-closing::backdrop { animation: dialog-backdrop-out 180ms ease-in both; }
 
   .project-gallery { position: relative; border-bottom: 1px solid var(--line); background: var(--subtle); }
   .project-gallery .splide__track { background-color: #ffffff; }
@@ -99,6 +103,26 @@
   .project-gallery .splide__pagination__page.is-active::after { width: 18px; background: var(--accent); }
 }
 
+@keyframes dialog-fade-in {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes dialog-fade-out {
+  from { opacity: 1; transform: translateY(0); }
+  to { opacity: 0; transform: translateY(8px); }
+}
+
+@keyframes dialog-backdrop-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes dialog-backdrop-out {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}
+
 @keyframes gallery-scroll {
   0% { opacity: 0; transform: translateY(-100%); }
   20%, 70% { opacity: 1; }
@@ -117,6 +141,7 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
+  #project-dialog[open], #project-dialog[open]::backdrop, #project-dialog[open].is-closing, #project-dialog[open].is-closing::backdrop { animation: none; }
   .project-gallery .gallery-scroll-line::after { animation: none; }
   html { scroll-behavior: auto; }
   *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
