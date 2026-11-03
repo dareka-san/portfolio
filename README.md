@@ -1,6 +1,7 @@
-# Developer Portfolio
+# Portfolio
 
-GitHub風のUIとTailwind CSSで構築した、1ページのポートフォリオです。
+ダークテーマのUIとTailwind CSSで構築した、シングルポートフォリオ。
+だいぶ自分用に調整してますが必要な要素は盛り込みました。
 
 ## 機能
 
@@ -14,15 +15,18 @@ GitHub風のUIとTailwind CSSで構築した、1ページのポートフォリ�
 ## 開発・確認
 
 Node.js 20以上を使用します。この環境ではNode.js 24と依存関係を準備済みです。
-
 ターミナルでプロジェクトに移動して、開発サーバーを起動します。
 
 ```sh
-cd /Users/kanosasaki/Documents/Codex/Portfolio/portfolio
+cd /Users/hogefuga/Documents/Codex/Portfolio/portfolio
 npm run dev
 ```
 
-`http://127.0.0.1:4173` を開きます。Tailwind CSSの生成、ファイル変更の監視、ブラウザの自動再読み込みがまとめて動きます。HTML・JavaScript・サムネイル・`src/styles.css` を保存すると画面に反映されます。停止するときは、起動したターミナルで `Ctrl+C` を押してください。ローカルの変更がGitHubや公開サイトへ自動送信されることはありません。
+`http://127.0.0.1:4173` を叩く。
+Tailwind CSSの生成、ファイル変更の監視、ブラウザの自動再読み込みがまとめて動かす。
+HTML・JavaScript・サムネイル・`src/styles.css` を保存すると画面に反映される。
+停止するときは、起動したターミナルで `Ctrl+C` を押してね。
+ローカルの変更がGitHubや公開サイトへ自動送信されることはない。
 
 別のPCなど、依存関係がまだ入っていない環境では、最初に `npm ci` を実行してください。
 
@@ -37,7 +41,7 @@ npm run check
 
 ## 自分の情報への差し替え
 
-`dist/assets/content.js` にプロフィール、実績、スキル、経歴をまとめています。
+`dist/assets/content.js` にプロフィール、実績、スキル、経歴をまとめていますので好きに変更してください。
 
 `data-profile` 属性が付いたプロフィール本文は、ページ表示時に `content.js` の内容で置き換わります。この本文を変えるときは `index.html` ではなく `content.js` を編集してください。レイアウトは `dist/index.html`、色や追加スタイルは `src/styles.css` で調整します。`dist/assets/styles.css` は自動生成されるため直接編集しません。
 
@@ -96,12 +100,12 @@ scripts/preview.mjs   ローカル確認用サーバー・自動再読み込み
 
 公開先はGitHub Pagesです。`main` にプッシュすると、GitHub Actionsが構文チェック・CSS生成・公開を自動で行います。
 
-- サイト: https://dareka-san.github.io/portfolio/
-- 公開処理の確認: https://github.com/dareka-san/portfolio/actions
+- サイト: https://hogefuga.github.io/portfolio/
+- 公開処理の確認: https://github.com/hogefuga/portfolio/actions
 - 設定: リポジトリの Settings → Pages → Source を GitHub Actions にします。
 
 `scripts/prepare-pages.mjs` が公開専用の一時フォルダを作り、`isHidden: true` の実績データと、それらにだけ使う画像を配信ファイルから除外します。元の `dist/` は変更しません。ただし、publicのリポジトリには非表示の実績データ・画像・変更履歴も含まれ、GitHubから閲覧できます。
 
 ローカルの保存だけでは公開サイトは更新されません。編集後はコミット・プッシュしてください。公開の失敗理由や進捗はActionsタブで確認できます。外部CDN・外部フォント・実行時のフレームワーク依存はありません。
 
-Tailwind CSSのユーティリティで独自のUIを実装しています。有料のTailwind PlusコンポーネントやGitHub公式素材は含めていません。
+Tailwind CSSのユーティリティで独自のUIを実装しています。有料のTailwind PlusコンポーネントやGitHub公式素材は含めない。
