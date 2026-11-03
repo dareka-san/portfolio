@@ -94,6 +94,14 @@ scripts/preview.mjs   ローカル確認用サーバー・自動再読み込み
 
 ## 公開
 
-`npm run build` 実行後、`dist/` の内容を静的サイトのホスティング先へ配置できます。外部CDN・外部フォント・実行時のフレームワーク依存はありません。非公開のGitHubリポジトリを作成しただけでは、Webサイトは一般公開されません。
+公開先はGitHub Pagesです。`main` にプッシュすると、GitHub Actionsが構文チェック・CSS生成・公開を自動で行います。
+
+- サイト: https://dareka-san.github.io/portfolio/
+- 公開処理の確認: https://github.com/dareka-san/portfolio/actions
+- 設定: リポジトリの Settings → Pages → Source を GitHub Actions にします。
+
+`scripts/prepare-pages.mjs` が公開専用の一時フォルダを作り、`isHidden: true` の実績データと、それらにだけ使う画像を配信ファイルから除外します。元の `dist/` は変更しません。ただし、publicのリポジトリには非表示の実績データ・画像・変更履歴も含まれ、GitHubから閲覧できます。
+
+ローカルの保存だけでは公開サイトは更新されません。編集後はコミット・プッシュしてください。公開の失敗理由や進捗はActionsタブで確認できます。外部CDN・外部フォント・実行時のフレームワーク依存はありません。
 
 Tailwind CSSのユーティリティで独自のUIを実装しています。有料のTailwind PlusコンポーネントやGitHub公式素材は含めていません。

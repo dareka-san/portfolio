@@ -10,7 +10,7 @@
     "prebuild": "npm run prepare:assets",
     "build": "tailwindcss -i ./src/styles.css -o ./dist/assets/styles.css --minify",
     "watch": "tailwindcss -i ./src/styles.css -o ./dist/assets/styles.css --watch",
-    "check": "node --check dist/assets/app.js && node --check dist/assets/content.js && node --check scripts/dev.mjs && node --check scripts/preview.mjs && node --check scripts/prepare-assets.mjs",
+    "check": "node --check dist/assets/app.js && node --check dist/assets/content.js && node --check scripts/dev.mjs && node --check scripts/preview.mjs && node --check scripts/prepare-assets.mjs && node --check scripts/prepare-pages.mjs",
     "prepreview": "npm run prepare:assets",
     "preview": "node scripts/preview.mjs"
   },
