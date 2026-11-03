@@ -123,6 +123,7 @@ document.querySelector('#project-grid').addEventListener('click', (event) => {
   const slider = new Splide(gallery, {
     type: 'slide',
     perPage: 1,
+    heightRatio: 459 / 800,
     rewind: true,
     speed: 350,
     arrows: hasMultipleImages,
