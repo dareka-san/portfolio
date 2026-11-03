@@ -59,7 +59,7 @@
   .tag { @apply inline-flex items-center rounded-full border border-link/15 bg-link/10 px-2.5 py-0.5 text-[11px] font-medium text-link; }
   .nav-link { @apply relative flex shrink-0 items-center gap-2 px-4 py-4 text-sm text-muted transition-colors hover:text-ink; }
   .nav-link[aria-current="location"] { color: var(--ink); }
-  .nav-link[aria-current="location"]::after { content: ""; position: absolute; bottom: -1px; height: 2px; background: #f78166; left: 12px; right: 12px; border-radius: 2px; }
+  .nav-link[aria-current="location"]::after { content: ""; position: absolute; bottom: 0; height: 2px; background: #f78166; left: 12px; right: 12px; border-radius: 2px; }
   .filter-button { @apply rounded-md px-3 py-1.5 text-xs text-muted transition-colors hover:text-ink; }
   .filter-button[aria-pressed="true"] { @apply bg-subtle font-medium text-ink shadow-sm ring-1 ring-line; }
   .project-card { @apply flex h-full w-full flex-col overflow-hidden rounded-lg border border-line bg-panel text-left transition duration-200 hover:-translate-y-1 hover:border-muted hover:shadow-lg; }
