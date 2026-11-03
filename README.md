@@ -42,8 +42,9 @@ npm run check
 `data-profile` 属性が付いたプロフィール本文は、ページ表示時に `content.js` の内容で置き換わります。この本文を変えるときは `index.html` ではなく `content.js` を編集してください。レイアウトは `dist/index.html`、色や追加スタイルは `src/styles.css` で調整します。`dist/assets/styles.css` は自動生成されるため直接編集しません。
 
 - `profile`: 名前、ハンドル、自己紹介、GitHub URLなど。差し替え後に `isSample` を `false` にするとモーダル内の「Sample project」表示が消えます。
+- `profile.strengths`: Skills内の「強み」の説明文。`\n` で改行、`\n\n` で空行を入れられます。
 - `projects`: タイトル、共通の説明文（`subtitle`）、サムネイル、担当範囲、課題、工夫、公開URLなど。`subtitle` は一覧カードと詳細モーダルの両方に表示します。
-- 公開ポートフォリオから追加した実績は、`sourceUrl` に元の実績ページを記録しています。文章は掲載内容を現在の各項目に合わせて再編集し、画像は `dist/assets/works/` にあるファイル数に合わせています。
+- 一部の実績には、`sourceUrl` に移行元の実績ページを記録しています。画面には表示しない任意の参照情報です。画像は `dist/assets/works/` にあるファイル数に合わせています。
 - `skillGroups`: スキルの分類と項目。
 - `careerEntries`: 新しい順の経歴。期間・所属・役職・説明を編集できます。実際の内容に差し替えた項目は `isSample` を `false` にすると「記入例」の表示が消えます。
 
@@ -51,6 +52,8 @@ npm run check
 
 実績の `liveUrl` と `repositoryUrl` は、空欄の場合リンクを表示しません。`profile.githubUrl` はプロフィールのコピーに使います。ヘッダーのGitHubリンクは `dist/index.html` で変更できます。
 どちらの実績URLも未設定なら、リンク欄や未設定の案内文は表示しません。
+
+各実績の `liveUrlTitle` でリンクボタン名を変更できます（例：`liveUrlTitle: 'Instagramを見る'`）。空文字・空白のみ・未指定の場合は「サイトを見る」を使います。`liveUrl` 自体が未設定の場合は、ボタン名を入力してもボタンは表示しません。
 
 各実績に `isHidden: true` を指定すると、一覧・カテゴリー絞り込み・モーダルの表示対象から除外し、件数にも含めません。`isHidden: false` または未指定なら表示します。変更を保存してページを再読み込みすると反映されます。データや画像自体は残るため、配信ファイルへのアクセスを制限する機能ではありません。
 

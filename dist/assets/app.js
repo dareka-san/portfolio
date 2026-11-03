@@ -92,8 +92,9 @@ document.querySelector('#project-grid').addEventListener('click', (event) => {
   const hasMultipleImages = galleryImages.length > 1;
   const challengeTitle = typeof project.challengeTitle === 'string' ? project.challengeTitle.trim() : '';
   const featuresTitle = typeof project.featuresTitle === 'string' ? project.featuresTitle.trim() : '';
+  const liveUrlTitle = typeof project.liveUrlTitle === 'string' ? project.liveUrlTitle.trim() : '';
   const externalLinks = [
-    { url: validUrl(project.liveUrl), text: 'サイトを見る' },
+    { url: validUrl(project.liveUrl), text: liveUrlTitle || 'サイトを見る' },
     { url: validUrl(project.repositoryUrl), text: 'ソースコードを見る' },
   ].filter((link) => link.url);
   document.querySelector('#dialog-body').innerHTML = `
