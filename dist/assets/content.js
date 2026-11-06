@@ -249,6 +249,7 @@ export const projects = [
     features: ['実物の紙素材を活かしたビジュアルと奥行きの表現', 'スクロール操作で進行するスクラブアニメーション', 'AIによる実装支援と要件・納期を踏まえた制作進行'],
     liveUrlTitle: '',
     liveUrl: 'https://jp.iface.com/pages/kirby2026', repositoryUrl: '',
+    isHidden: true
   },
   {
     id: 'hughome-15th-tshirt', title: 'HUGHOME 15周年記念Tシャツ', subtitle: '企業の歩みと次の挑戦を、建築的なグラフィックで表現したアニバーサリーアイテム。',
