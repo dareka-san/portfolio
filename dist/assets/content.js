@@ -7,7 +7,7 @@ export const profile = {
   intro: 'Webデザイン・フロントエンドエンジニアを専門領域として制作会社・事業会社に約16年携わってきました。\n近年はWeb制作に限らず、SNS、グラフィック、イベント、社内向けツールなど、目的に応じて手段を選択し、顧客・社員・企業とのコミュニケーション構築や業務環境の改善にも取り組んできました。\nその両方を大切に、Webのものづくりを楽しんでいます。',
   location: 'Japan / Kanagawa',
   githubUrl: 'https://github.com/dareka-san',
-  strengths: 'Webデザインとフロントエンド開発の専門性を軸に、企業やサービスの課題を整理し、企画・設計からデザイン・実装まで一貫して対応できること。\nWeb領域に限らず、SNS・グラフィック・イベント・業務ツールなど、目的に応じた手段を選び、人や組織をつなぐコミュニケーションを形にします。',
+  strengths: 'Webデザインとフロントエンド開発の専門性を軸に、企業やサービスの課題を整理し、企画・設計からデザイン・実装まで一貫して対応できること。Web領域に限らず、SNS・グラフィック・イベント・業務ツールなど、目的に応じた手段を選び、人や組織をつなぐコミュニケーションを形にします。',
   learning: 'Rive / Blenderを使用したインタラクション表現',
   isSample: false,
 };
@@ -39,7 +39,7 @@ export const projects = [
     features: ['顧客とのコミュニケーション設計【Web制作 / SNSマーケティング・運用 / イベント企画 / カタログ・販促物制作】', '社内スタッフとの理念・価値観の共有【タグライン策定 / チームウェア作成】', '協力会社とのコミュニケーション設計【勉強会・合同イベントの開催 / チームウェア受注制作】', '既存サービスの再構築と事業展開【リノベーション・外構工事専門サービスの企画・設計】', '社内業務のデジタル化と業務改善【AIを使用した便利ツールの開発 / サーバーディレクトリ構成設計】'],
     liveUrlTitle: 'こちらにもいくつか活動内容掲載してます',
     liveUrl: 'https://hughome.net/journal', repositoryUrl: '',
-    isHidden: true
+    // isHidden: true
   },
   {
     id: 'iface-website', title: 'iFace 公式サイト', subtitle: 'スマートフォンケースブランド「iFace」の公式サイトTOPページリニューアル。ユーザーリサーチからUI/UXを改善',
@@ -81,7 +81,7 @@ export const projects = [
     features: ['情報設計とユーザー導線の再構築', 'アイデンティティの再定義', 'アンティーク着物レンタルサービスの統合'],
     liveUrlTitle: '',
     liveUrl: 'https://lp-department.com/', repositoryUrl: '',
-    isHidden: true
+    // isHidden: true
   },
   {
     id: 'lda', title: 'L.ANTIQUES', subtitle: '着物レンタルサービス「L.ANTIQUES」のアニメーションシンボルを制作',
@@ -100,7 +100,7 @@ export const projects = [
     features: false,
     liveUrlTitle: '',
     liveUrl: '', repositoryUrl: '',
-    isHidden: true
+    // isHidden: true
   },
   {
     id: 'iface-iphone18', title: 'iFace iPhone18 Pro / Pro Max LP', subtitle: '商品ごとの個性と購買導線を整理した、iFace新機種対応商品のプロモーションLP。',
@@ -142,7 +142,7 @@ export const projects = [
     features: ['3世帯の暮らしと施主の言葉によるライフスタイル紹介', '建材・断熱・耐震・メンテナンスの情報を体系化', '横18cm×縦23.7cm・全72ページ・糸ミシン中綴じ'],
     liveUrlTitle: '当時のJournal記事はこちら',
     liveUrl: 'https://hughome.net/journal/products-20250127', repositoryUrl: '',
-    isHidden: true
+    // isHidden: true
   },
   {
     id: 'hughome-website', title: 'HUGHOME 公式サイト', subtitle: '施工実績の閲覧性と継続的な情報発信を整えた、設計・施工会社のサイトリニューアル。',
@@ -165,7 +165,7 @@ export const projects = [
     liveUrlTitle: '',
     liveUrl: 'https://hughome.net/', repositoryUrl: '',
     sourceUrl: 'https://kanosasaki.myportfolio.com/hughome',
-    isHidden: true
+    // isHidden: true
   },
   {
     id: 'hughome-catalogue-illustration', title: 'HUGHOME カタログイラスト', subtitle: '「暮らし」と「住宅の機能」を親しみやすく表現した、カタログの扉絵。',
@@ -185,7 +185,7 @@ export const projects = [
     liveUrlTitle: '',
     liveUrl: '', repositoryUrl: '',
     sourceUrl: 'https://kanosasaki.myportfolio.com/hughome-catalogue-illust',
-    isHidden: true
+    // isHidden: true
   },
   {
     id: 'osaragijiro-website', title: '旧大佛次郎茶亭 公式サイト', subtitle: '歴史ある茶亭の文化的価値を、イラストと穏やかな動きで伝える公式サイト。',
@@ -210,7 +210,7 @@ export const projects = [
     features: ['現地での文化体験につなげるコンテンツ設計', 'ノーコードツールによる構築と運用設計', '海外ユーザーを考慮した多言語対応'],
     liveUrlTitle: '',
     liveUrl: 'https://osaragijiro.jp/', repositoryUrl: '',
-    isHidden: true
+    // isHidden: true
   },
   {
     id: 'hughome-instagram', title: 'HUGHOME SNSマーケティング・運用', subtitle: 'Instagramの立ち上げから映像・投稿制作、分析と改善までを一貫して担当。',
@@ -232,7 +232,7 @@ export const projects = [
     features: ['企業の日常と世界観を伝えるリール動画の企画・撮影・編集', '写真・動画・グラフィックを通じた表現の統一', '投稿の反応をもとにした分析と継続的な運用改善'],
     liveUrlTitle: '',
     liveUrl: 'https://www.instagram.com/hughome_archive/', repositoryUrl: '',
-    isHidden: true
+    // isHidden: true
   },
   {
     id: 'iface-kirby-lp', title: 'iFace×星のカービィ プロモーションLP', subtitle: '紙の質感とスクロール演出で、カービィと冒険する商品体験を設計。',
@@ -270,7 +270,7 @@ export const projects = [
     features: ['2つの「h」を重ねた立体的なアニバーサリーロゴ', '企業と顧客・ファンをつなげるタッチポイントとして制作'],
     liveUrlTitle: '',
     liveUrl: '', repositoryUrl: '',
-    isHidden: true
+    // isHidden: true
   },
   {
     id: 'cafe2-website', title: 'Cafe2 公式サイト', subtitle: '子どもの手描きイラストを起点に、カフェの温かさと個性を伝えるサイトを制作。',
@@ -289,7 +289,7 @@ export const projects = [
     features: ['子どもの原画を活かしたオリジナルイラストの展開', 'トースト・カレーのカラーイラストによるメニュー訴求', '店舗の雰囲気に合わせた配色・タイポグラフィ・Webデザイン'],
     liveUrlTitle: '',
     liveUrl: 'https://cafe2.tokyo/', repositoryUrl: '',
-    isHidden: true
+    // isHidden: true
   },
   {
     id: 'hughome-original-products', title: 'HUGHOME オリジナルグッズ', subtitle: 'ダスター・ステッカー・ジャケットなど、企業と顧客をつなぐタッチポイントを展開。',
@@ -309,7 +309,7 @@ export const projects = [
     features: false,
     liveUrlTitle: '',
     liveUrl: '', repositoryUrl: '',
-    isHidden: true
+    // isHidden: true
   },
   {
     id: 'infoledger', title: 'INFOLEDGER', subtitle: '収入・支出・資産をグラフで可視化し、家計の流れをひと目で把握するWebアプリ。',
@@ -330,7 +330,7 @@ export const projects = [
     features: ['収入・支出・資産をまとめたダッシュボード', 'Chart.jsによる内訳・推移の可視化とインタラクション', '家庭ごとの分類を想定したWordPressでの手動登録'],
     liveUrlTitle: '',
     liveUrl: '', repositoryUrl: '',
-    isHidden: true
+    // isHidden: true
   },
   {
     id: 'drawings-sketches', title: 'DRAWINGS & SKETCHES', subtitle: '鉛筆とProcreateで描いてきた、自主制作のデッサン・ドローイング。',
@@ -352,7 +352,7 @@ export const projects = [
     features: ['鉛筆とProcreateによるデッサン・ドローイング', '個人の表現として継続してきた自主制作', '用意済みの6点を掲載したギャラリー'],
     liveUrlTitle: '',
     liveUrl: '', repositoryUrl: '',
-    isHidden: true
+    // isHidden: true
   },
   {
     id: 'salisty-5th-anniversary', title: 'salisty 5周年記念サイト', subtitle: 'イラストと視差効果で商品の世界観を表現した、5周年キャンペーンサイト。',
@@ -422,7 +422,7 @@ export const projects = [
     features: false,
     liveUrlTitle: '',
     liveUrl: 'https://www.youtube.com/@DEEPPHONICSOUND', repositoryUrl: '',
-    isHidden: true
+    // isHidden: true
   },
 ];
 
