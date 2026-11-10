@@ -2,12 +2,36 @@
 <html lang="ja" data-theme="dark">
 <head>
   <meta charset="UTF-8">
+  <script>
+    if (location.origin === 'https://dareka-san.github.io' && location.pathname.startsWith('/portfolio/')) {
+      const measurementId = 'G-2BNW8Q0YV5';
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        window.dataLayer.push(arguments);
+      }
+      gtag('consent', 'default', {
+        ad_storage: 'denied',
+        ad_user_data: 'denied',
+        ad_personalization: 'denied',
+      });
+      gtag('js', new Date());
+      gtag('config', measurementId, {
+        allow_google_signals: false,
+        allow_ad_personalization_signals: false,
+      });
+
+      const googleTag = document.createElement('script');
+      googleTag.async = true;
+      googleTag.src = 'https://www.googletagmanager.com/gtag/js?id=' + measurementId;
+      document.head.append(googleTag);
+    }
+  </script>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#0d1117">
   <meta name="description" content="ポートフォリオ">
   <title>Kano Sasaki — Portfolio</title>
   <link rel="icon" href="./assets/avatar-github.png" type="image/png">
-  <link rel="stylesheet" href="./assets/styles.css?v=09929dc0f6e8">
+  <link rel="stylesheet" href="./assets/styles.css?v=b3baba113a8f">
   <script type="module" src="./assets/app.js"></script>
 </head>
 <body class="bg-page font-sans text-ink antialiased">
@@ -136,6 +160,16 @@
 
   <footer class="mx-auto flex max-w-[1244px] flex-wrap items-center justify-center gap-3 border-t border-line px-5 py-7 text-[14px]">
     <p class="font-mono">© <span id="year">2026</span> <span data-profile="name">Kano Sasaki</span></p>
+    <details class="w-full text-center text-xs text-muted">
+      <summary class="cursor-pointer">アクセス解析について</summary>
+      <p class="mt-2 leading-relaxed">
+        このサイトは、閲覧状況や流入元を把握するためにGoogle Analyticsを使用しています。
+        Google AnalyticsはCookieを利用し、閲覧ページなどの利用データをGoogleへ送信します。
+        <a class="text-link" href="https://policies.google.com/technologies/partner-sites?hl=ja">Googleによるデータの利用について</a>
+        ／
+        <a class="text-link" href="https://tools.google.com/dlpage/gaoptout?hl=ja">計測を無効にする方法</a>
+      </p>
+    </details>
   </footer>
 
   <dialog id="project-dialog" aria-labelledby="dialog-title" class="fixed inset-0 m-auto max-h-[90dvh] w-[calc(100%-2rem)] max-w-7xl overflow-y-auto rounded-xl border border-line p-0 shadow-2xl">
